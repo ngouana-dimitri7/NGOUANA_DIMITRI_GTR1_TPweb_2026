@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>mon nini-site</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="page">
+        <header>
+            <h1>mon mini-site web</h1>
+        </header>
+        <nav>
+            <a href="index.html">accueil</a>
+            <a href="presentation.html">presentation</a>
+            <a href="contact.html">contact</a>
+        </nav>
+        <div class="container">
+            <main>
+                <h2>bienvenue</h2>
+                <p>ce site a ete ameliore avec flexbox pour une meilleure organisation.</p>
+                <section class="carte">
+                    <h2>message dynamique avec javascript</h2>
+                    <p>cette zone permet d'afficher un message personnalise selon le nom et le domaine choisi</p>
+                    <label for="nomUtilisateur">Entrez votre nom :</label>
+                    <input type="text" id="nomUtilisateur" placeholder="Exemple : Yannick">
+                    <label for="domaineUtilisateur">Choisissez votre domaine d'interet:</label>
+                    <select id="domaineUtilisateur">
+                        <option value="">--Choisir un domaine--</option>
+                        <option value="reseaux informatiques">Reseaux informatiques</option>
+                        <option value="cybersecurite">Cybersecurite</option>
+                        <option value="developpement web">Developpement web</option>
+                        <option value="administration systeme">Administration systeme</option>
+                    </select>
+                    <button onclick="afficherMessage()">afficher le message</button>
+                    <button onclick="effacerMessage()">effacer</button>
+                    <p id="messageResultat"></p>
+                </section>
+            </main>
+            <aside>
+                <h2>informations</h2>
+                <p>cette zone peut contenir des informations supplementaires</p>
+            </aside>
+        </div>
+        <footer>
+            <p>&copy; 2026-mon mini-site</p>
+        </footer>
+        </div>
+        <main>
+            <div class="carte">
+                <h2>developpement web</h2>
+                <p>le developpment web peremt de creer des pages, des sites et des applications depuis un navigateur</p>
+            </div>
+            <div class="carte">
+                <h2>responsive design</h2>
+                <p>le responsive design permet d'adapter automatiquement l'affichage d'un site aux differents ecrans.</p>
+            </div>
+        </main>
+        <script>
+            function afficherMessage(){
+                let nom=document.getElementById("nomUtilisateur").value;
+                let domaine=document.getElementById("domaineUtilisateur").value;
+                let message="";
+                if(nom==="" && domaine===""){
+                    message="Veuillez saisir votre nom et choisir un domaine d'interet.";
+                }else if(nom===""){
+                    message="Veuillez saisir votre nom.";
+                }else if(domaine===""){
+                    message="Veuillez choisir un domaine d'interet.";
+                }else{
+                    message="Bienvenue" + nom +".Votre domaine d'interet est:"+ domaine +".";
+                }
+                document.getElementById("messageResultat").textContent=message;
+            }
+            function effacerMessage(){
+                document.getElementById("nomUtilisateur").value="";
+                document.getElementById("domaineUtilisateur").value="";
+                document.getElementById("messageResultat").textContent="";
+            }
+        </script>
+    </body>
+</html>
